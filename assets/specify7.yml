@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: Specify 7 API
+  description: This is a draft API specification for Specify
+  termsOfService: 'http://example.com/terms/'
+  contact:
+    name: API Support
+    url: 'http://www.example.com/support'
+    email: support@example.com
+  license:
+    name: GPL 3
+    url: 'https://www.gnu.org/licenses/gpl-3.0.txt'
+  version: 1.0.0
+servers:
+  - url: 'https://specify7.specifysoftware.org/'
+    description: Base URL for Specify services
+paths:
+  /context/login:
+    summary: Authentication endpoint
+    get:
+      summary: Get available collections
+      description: ''
+      operationId: 'get_collections'
+      responses:
+        200:
+          description: Get available collections
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    nullable: true
+                    type: string
+                  password:
+                    nullable: true
+                    type: string
+                  collections:
+                    type: object
+                  collection:
+                    nullable: true
+                    type: string
+              examples:
+                Available collection:
+                  value: |-
+                    {
+                      "username": null,
+                      "password": null,
+                      "collections": {
+                        "KUFishtissue": 32768,
+                        "KUFishvoucher": 4
+                      },
+                      "collection": null
+                    }
+    put:
+      summary: Log in
+      description: ''
+      operationId: 'collection_login'
+      parameters:
+        - name: X-CSRFToken
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                collection:
+                  type: integer
+      responses:
+        default:
+          description: Default error sample response
