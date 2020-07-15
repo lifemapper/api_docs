@@ -20,9 +20,9 @@ paths:
     get:
       summary: Get available collections
       description: ''
-      operationId: 'get_collections'
+      operationId: get_collections
       responses:
-        200:
+        '200':
           description: Get available collections
           content:
             application/json:
@@ -55,7 +55,7 @@ paths:
     put:
       summary: Log in
       description: ''
-      operationId: 'collection_login'
+      operationId: collection_login
       parameters:
         - name: X-CSRFToken
           in: header
@@ -82,25 +82,98 @@ paths:
     get:
       summary: Get user information
       description: ''
-      operationId: 'get_user_info'
+      operationId: get_user_info
       responses:
-        200:
+        '200':
           description: Get user information
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/user_info'
               examples:
-                Available collection:
+                Example user info response:
                   value: |-
                     {
-                      "username": null,
-                      "password": null,
-                      "collections": {
-                        "KUFishtissue": 32768,
-                        "KUFishvoucher": 4
-                      },
-                      "collection": null
+                        "accumminloggedin": null,
+                        "agent": {
+                            "abbreviation": "tcu",
+                            "addresses": [],
+                            "agentattachments": [],
+                            "agentgeographies": [],
+                            "agentspecialties": [],
+                            "agenttype": 1,
+                            "collcontentcontact": null,
+                            "collectors": "/api/specify/agent/?agent=3",
+                            "colltechcontact": null,
+                            "createdbyagent": null,
+                            "dateofbirth": null,
+                            "dateofbirthprecision": 1,
+                            "dateofdeath": null,
+                            "dateofdeathprecision": 1,
+                            "datetype": null,
+                            "division": "/api/specify/division/2/",
+                            "email": "testuser@ku.edu",
+                            "firstname": "Test",
+                            "groups": [],
+                            "guid": "f2fec95a-7699-45f2-a794-337040b5bbc8",
+                            "id": 3,
+                            "initials": null,
+                            "instcontentcontact": null,
+                            "insttechcontact": null,
+                            "interests": null,
+                            "jobtitle": null,
+                            "lastname": "User",
+                            "members": "/api/specify/agent/?member=3",
+                            "middleinitial": "C",
+                            "modifiedbyagent": null,
+                            "organization": null,
+                            "orgmembers": "/api/specify/agent/?organization=3",
+                            "remarks": null,
+                            "resource_uri": "/api/specify/agent/3/",
+                            "specifyuser": "/api/specify/specifyuser/1/",
+                            "suffix": null,
+                            "timestampcreated": "2012-08-09T12:29:16",
+                            "timestampmodified": "2012-08-09T12:29:16",
+                            "title": "mr",
+                            "url": null,
+                            "variants": [],
+                            "version": 3
+                        },
+                        "agents": "/api/specify/specifyuser/?specifyuser=1",
+                        "available_collections": [
+                            [
+                                4,
+                                "KUFishvoucher"
+                            ],
+                            [
+                                32768,
+                                "KUFishtissue"
+                            ]
+                        ],
+                        "createdbyagent": null,
+                        "email": "testuser@ku.edu",
+                        "id": 1,
+                        "isadmin": true,
+                        "isauthenticated": true,
+                        "isloggedin": true,
+                        "isloggedinreport": false,
+                        "logincollectionname": "KUFishtissue",
+                        "logindisciplinename": "Ichthyology",
+                        "loginouttime": "2017-04-11T16:03:08",
+                        "message_set": "/api/specify/specifyuser/?user=1",
+                        "modifiedbyagent": null,
+                        "name": "Sp7demofish",
+                        "resource_uri": "/api/specify/specifyuser/1/",
+                        "spappresourcedirs": "/api/specify/specifyuser/?specifyuser=1",
+                        "spappresources": "/api/specify/specifyuser/?specifyuser=1",
+                        "spquerys": "/api/specify/specifyuser/?specifyuser=1",
+                        "tasksemaphores": "/api/specify/specifyuser/?owner=1",
+                        "timestampcreated": "2012-08-09T12:29:16",
+                        "timestampmodified": "2012-08-09T12:29:16",
+                        "usertype": "Manager",
+                        "version": 349,
+                        "workbenches": "/api/specify/specifyuser/?specifyuser=1",
+                        "workbenchtemplates": "/api/specify/specifyuser/?specifyuser=1"
                     }
 components:
   schemas:
@@ -219,7 +292,6 @@ components:
             type: object
         version:
           type: integer
-      
     user_info:
       type: object
       properties:
