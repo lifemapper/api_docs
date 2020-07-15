@@ -77,3 +77,212 @@ paths:
       responses:
         default:
           description: Default error sample response
+  /context/user.json:
+    summary: Logged in user endpoint
+    get:
+      summary: Get user information
+      description: ''
+      operationId: 'get_user_info'
+      responses:
+        200:
+          description: Get user information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user_info'
+              examples:
+                Available collection:
+                  value: |-
+                    {
+                      "username": null,
+                      "password": null,
+                      "collections": {
+                        "KUFishtissue": 32768,
+                        "KUFishvoucher": 4
+                      },
+                      "collection": null
+                    }
+components:
+  schemas:
+    agent:
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        addresses:
+          type: array
+          items:
+            type: object
+        agentattachments:
+          type: array
+          items:
+            type: object
+        agentgeographies:
+          type: array
+          items:
+            type: object
+        agentspecialties:
+          type: array
+          items:
+            type: object
+        agenttype:
+          type: integer
+        collcontentcontact:
+          nullable: true
+          type: string
+        collectors:
+          type: string
+        colltechcontact:
+          nullable: true
+          type: string
+        createdbyagent:
+          nullable: true
+          type: string
+        dateofbirth:
+          nullable: true
+          type: string
+        dateofbirthprecision:
+          type: integer
+        dateofdeath:
+          nullable: true
+          type: string
+        dateofdeathprecision:
+          type: integer
+        datetype:
+          nullable: true
+          type: string
+        division:
+          type: string
+        email:
+          type: string
+        firstname:
+          type: string
+        groups:
+          type: array
+          items:
+            type: object
+        guid:
+          type: string
+        id:
+          type: integer
+        initials:
+          nullable: true
+          type: string
+        instcontentcontact:
+          nullable: true
+          type: string
+        insttechcontact:
+          nullable: true
+          type: string
+        interests:
+          nullable: true
+          type: string
+        jobtitle:
+          nullable: true
+          type: string
+        lastname:
+          type: string
+        members:
+          type: string
+        middleinitial:
+          type: string
+        modifiedbyagent:
+          nullable: true
+          type: string
+        organization:
+          nullable: true
+          type: string
+        orgmembers:
+          type: string
+        remarks:
+          nullable: true
+          type: string
+        resource_uri:
+          type: string
+        specifyuser:
+          type: string
+        suffix:
+          nullable: true
+          type: string
+        timestampcreated:
+          type: string
+        timestampmodified:
+          type: string
+        title:
+          type: string
+        url:
+          nullable: true
+          type: string
+        variants:
+          type: array
+          items:
+            type: object
+        version:
+          type: integer
+      
+    user_info:
+      type: object
+      properties:
+        accumminloggedin:
+          nullable: true
+          type: string
+        agent:
+          $ref: '#/components/schemas/agent'
+        agents:
+          type: string
+        available_collections:
+          type: array
+          items:
+            type: array
+            items:
+              type: object
+        createdbyagent:
+          nullable: true
+          type: string
+        email:
+          type: string
+        id:
+          type: integer
+        isadmin:
+          type: boolean
+        isauthenticated:
+          type: boolean
+        isloggedin:
+          type: boolean
+        isloggedinreport:
+          type: boolean
+        logincollectionname:
+          type: string
+        logindisciplinename:
+          type: string
+        loginouttime:
+          type: string
+        message_set:
+          type: string
+        modifiedbyagent:
+          nullable: true
+          type: string
+        name:
+          type: string
+        resource_uri:
+          type: string
+        spappresourcedirs:
+          type: string
+        spappresources:
+          type: string
+        spquerys:
+          type: string
+        tasksemaphores:
+          type: string
+        timestampcreated:
+          type: string
+        timestampmodified:
+          type: string
+        usertype:
+          type: string
+        version:
+          type: integer
+        workbenches:
+          type: string
+        workbenchtemplates:
+          type: string
