@@ -52,6 +52,11 @@ paths:
                     "resolver_code": "cnri",
                     "name": "CNRI Resolver",
                     "url": "https://cnri.org"
+                  },
+                  {
+                    "resolver_code": "ark",
+                    "name": "ARK Resolver",
+                    "url": "https://n2t.net/"
                   }
                 ]
                   
